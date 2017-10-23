@@ -5,7 +5,7 @@ CalcWeb written in Java (Java8+), using
 
 Web running via [Spark](http://sparkjava.com/).
 
-![CalcWeb Web](readme/sc.png)
+![CalcWeb Web](readme/calcweb.png)
 
 ## Getting started
 - Run tests: `gradle test` (`./gradlew test`)

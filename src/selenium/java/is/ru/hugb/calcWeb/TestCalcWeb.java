@@ -10,7 +10,7 @@ public class TestCalcWeb extends SeleniumTestWrapper {
   @Test
   public void testTitleMatches() {
     driver.get(baseUrl);
-    assertEquals("StringCalculator", driver.getTitle());
+    assertEquals("CalcWeb", driver.getTitle());
   }
 
   @Test
