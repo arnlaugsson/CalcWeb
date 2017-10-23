@@ -1,0 +1,33 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+    jcenter()
+}
+
+sourceSets {
+  selenium
+}
+
+dependencies {
+    compile 'com.google.guava:guava:22.0'
+    compile "com.sparkjava:spark-core:2.6.0"
+
+    testCompile 'org.testng:testng:6.10'
+
+    seleniumCompile 'junit:junit:4.12'
+    seleniumCompile 'org.seleniumhq.selenium:selenium-java:3.6.0'
+}
+
+mainClassName = 'is.ru.hugb.calcWeb.CalcWeb'
+
+test.useTestNG()
+
+task selenium(type: Test, dependsOn: installDist) {
+  testClassesDir = sourceSets.selenium.output.classesDir
+  classpath = sourceSets.selenium.runtimeClasspath
+
+  doFirst {
+    'build/install/calcWeb/bin/calcWeb.bat'.execute()
+  }
+}

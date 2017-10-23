@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>StringCalculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>StringCalculator</h1>
+      <p>Daily addition</p>
+
+      <form method="post" action="/add" class="form-inline" role="form">
+        <div class="form group">
+          <input type="text" name="number" id="number">
+        </div>
+        <button type="submit">Calculate!</button>
+      </form>
+      <hr>
+      <div id="results" class="alert alert-info">
+        Waiting for input to calculate...
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(document).ready(function() {
+        var form = $('form');
+        form.submit(function( event ) {
+          var number = $("#number").val();
+          $.ajax({
+            type: form.attr('method'),
+            url: form.attr('action'),
+            data: 'number=' + number
+          }).done(function(result) {
+            $('#results').html(result).attr('class', 'alert alert-success');
+          }).fail(function() {
+            $('#results').html('Error, Illegal string...').attr('class', 'alert alert-danger');
+          });
+          event.preventDefault();
+        });
+      });
+    </script>
+  </body>
+
+</html>
