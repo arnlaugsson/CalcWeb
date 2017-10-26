@@ -26,6 +26,7 @@ The objective is that the students know what functional testing is about and wha
 1. Depending on your OS, installing the WebDriver will be different. Look for installation instructions for your OS and your choice of WebDriver:
     - For running tests in Chrome install Chromedriver (_recommended_)
     - For running tests in Firefox install Geckodriver
+    - If you are a Mac user, you can install Chromedriver through homebrew with `brew install chromedriver`, then you can skip step 2.
 2. Add your installed WebDriver to path
     - To test if you have done this, you can call: `geckodriver` or `chromedriver` in a new terminal/command prompt window. The WedDriver of your choice should start up (just close it, we won't run it there).
 3. Add your selected Browser to path
